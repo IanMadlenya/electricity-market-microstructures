@@ -52,6 +52,14 @@ All four basic auction forms can lead to a uniform winning price when a single, 
 The [Revenue Equivalence Theorem](https://en.wikipedia.org/wiki/Revenue_equivalence) states that, under certain assumptions, the expected revenue generated via any of the above auction formats is the same.  However, as always when applying such theorems, the devil is in the details.  Apart from the technical assumptions, revenue equivalence requires market participants are risk-neutral with respect to money (i.e., have quasi-linear preferences) and have independent valuations of the good being auctioned.  Revenue equivalence fails under risk aversion or interdependent valuations.
 
 ## Wholesale Electricity Markets
+Wholesale markets include auction designs for allocating rights to resources (i.e., capacity or energy) and transmission.  Typically there is a single network operator responsible for physical operation of the grid infrastructure in a particular geographic area.  System operator coordinates generator schedules, handles load balancing and supply of resources in real time.  Not obvious to what extent the system operator needs to be involved in energy an ancillary markets. For example, should the system operator also be responsible for administering the day-ahead forward/futures and near real-time auctions for energy and capacity?
+
+Case for centralized wholesale markets is strongest when there is strong competition and good optimization (of what?); case for more decentralized, bilateral markets is strongest when scheduling decisions of market participants are important. Well functioning bilateral markets would seem to require some sort of centralized near-real time market to smooth flucuations. To what extend will blockchain technologies, cloud computing, and smart homes impact this dynamic?
+
+### Constraints on energy auctions
+Constraints on electricity generators significantly complicate the auction design problem as the constraints create opporuntities for individual generators to engage in strategic bidding. Major contribution of our EDSL is that it will allow us to explore the auction space in order to find designs that minimize the prospect for strategic bidding whilst taking into account the generation constraints.
+
+Historically incorporating demand for energy into the auction process has been challenging. In order for load to participate directly in forward and real-time markets smart metering technology is necessary.  In some cases load must be directly dispatchable (i.e., controllable!) by the system operator. Technology developments are rapidly evolving in this direction however.
 
 ## Retail Electricity Markets
 
