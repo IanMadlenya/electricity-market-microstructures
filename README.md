@@ -51,6 +51,11 @@ All four basic auction forms can lead to a uniform winning price when a single, 
 ### Revenue equivalence theorem
 The [Revenue Equivalence Theorem](https://en.wikipedia.org/wiki/Revenue_equivalence) states that, under certain assumptions, the expected revenue generated via any of the above auction formats is the same.  However, as always when applying such theorems, the devil is in the details.  Apart from the technical assumptions, revenue equivalence requires market participants are risk-neutral with respect to money (i.e., have quasi-linear preferences) and have independent valuations of the good being auctioned.  Revenue equivalence fails under risk aversion or interdependent valuations.
 
+### Bidding language
+Bidding language needs to be sufficiently flexible to allow market participants to express their preferences.  From [Chao and Wilson (2002)](http://link.springer.com/article/10.1023/A:1020535511537)...
+
+> Gaming strategies are inherent in any design that requires traders to manipulate their bids in order to take account of factors that the bid format does not allow them to express directly
+
 ## Wholesale Electricity Markets
 Wholesale markets include auction designs for allocating rights to resources (i.e., capacity or energy) and transmission.  Typically there is a single network operator responsible for physical operation of the grid infrastructure in a particular geographic area.  System operator coordinates generator schedules, handles load balancing and supply of resources in real time.  Not obvious to what extent the system operator needs to be involved in energy an ancillary markets. For example, should the system operator also be responsible for administering the day-ahead forward/futures and near real-time auctions for energy and capacity?
 
@@ -59,7 +64,25 @@ Case for centralized wholesale markets is strongest when there is strong competi
 ### Constraints on energy auctions
 Constraints on electricity generators significantly complicate the auction design problem as the constraints create opporuntities for individual generators to engage in strategic bidding. Major contribution of our EDSL is that it will allow us to explore the auction space in order to find designs that minimize the prospect for strategic bidding whilst taking into account the generation constraints.
 
-Historically incorporating demand for energy into the auction process has been challenging. In order for load to participate directly in forward and real-time markets smart metering technology is necessary.  In some cases load must be directly dispatchable (i.e., controllable!) by the system operator. Technology developments are rapidly evolving in this direction however.
+Historically incorporating demand for energy into the auction process has been challenging. In order for load to participate directly in forward and real-time markets smart metering technology is necessary.  In some cases load must be directly dispatchable (i.e., controllable!) by the system operator.
+
+### Settlement Systems
+Settlement systems define the rules concerning the price(s) that willbe paid to suppliers or by buyers.  Two basic types of settlement:
+
+* Single-settlement: in single settlement systems, prices that are originally agreed in forward markets are actually settled at real-time spot prices (which might be different).  Single-settltment creates an incentive for market participants to attempt to manipulate the day-ahead forward market in order to influence the price in the real-time market at which transaction are processed. Large market participants are best placed to take advantage of these types of manipulations. Potential for manipulation and added complexity deters entry.
+* Multi-settlement: multi-settlement mitigates gaming.  Multi-settlement system decouples the day-ahead forward market from the real-time market. Ask and bid orders issued in the day-ahead market are binding financial commitments. Real-time market prices only apply to ask and bid orders submitted in the real-time market.  No incentive for participants in the day-ahead forward market to try and manipulate the real-time market price.
+
+Uniform price (i.e., non-discriminatory) versus "pay-as-bid" (i.e., discriminatory) auctions are important distinction.  Winner's curse arguments would favor uniform pricing, influence of inframarginal capacity on market-clearing prices argues for a "pay-as-bid" pricing rule. No obvious which of these two effects dominate.  API should accommodate both types of pricing rules
+
+## Examples of auction designs from the U.S.
+Day-ahead forward market: periodic double auction with uniform pricing is used for scheduling and unit commitments for the following day.  Settlement is based on real-time [locational marginal prices](http://www.caiso.com/docs/2004/02/13/200402131607358643.pdf) or zonal prices.
+
+Importance of reverse auctions for use in procurement of [ancillary services](https://en.wikipedia.org/wiki/Ancillary_services_(electric_power)). Important for renewables: technological advances (particularly blockcahin) could facilitate competition in these auctions. Ancillary services are required in order for market to function as such, ISO typically act as "providers of last resort" for these services. Issues to consider: activity rules, transmission congestion limiting ability of supply to resond to higher prices, real-time demand is highly inelastic (for technological reasons). Design of such auctions in the U.S. has converged towards the "smart buyer model."
+
+### Installed Capacity Markets: 
+ISO pays generators for reserving capacity to meet reliability requirements for the system.  LSEs must contract with generators to obtain a capacity that exceeds peak load within a certain time frame. Formal and informal secondary markets exist inwhich capacity obligations are traded? What role might blockchain technology play in organizing this market?
+
+Why does installed capacity market exist? Demand in these markets is highly price inelastic in the short-term and currently does not directly participate in wholesale markets.
 
 ## Retail Electricity Markets
 
